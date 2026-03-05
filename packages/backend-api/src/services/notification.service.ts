@@ -1,20 +1,18 @@
 class NotificationService {
-  private twilioSid: string
-  private twilioToken: string
-  private whatsappFrom: string
+  private manychatApiKey: string
+  private manychatFlowNamespace: string
 
   constructor() {
-    this.twilioSid = process.env.TWILIO_ACCOUNT_SID || ''
-    this.twilioToken = process.env.TWILIO_AUTH_TOKEN || ''
-    this.whatsappFrom = process.env.TWILIO_WHATSAPP_FROM || ''
+    this.manychatApiKey = process.env.MANYCHAT_API_KEY || ''
+    this.manychatFlowNamespace = process.env.MANYCHAT_FLOW_NAMESPACE || 'booking_confirmation'
   }
 
   async sendBookingConfirmation(
     patientId: string,
     booking: { bookingId: string; scheduledAt: string; location: string }
   ) {
-    if (!this.twilioSid || !this.twilioToken) {
-      console.log('[notification] Twilio not configured, skipping notification')
+    if (!this.manychatApiKey) {
+      console.log('[notification] ManyChat not configured, skipping notification')
       return
     }
 
@@ -31,28 +29,67 @@ class NotificationService {
     }
 
     const patient = result.rows[0]
-    const message = `Hello ${patient.first_name}! Your appointment with Dr. Costi has been requested for ${new Date(booking.scheduledAt).toLocaleString()} at ${booking.location}. We will confirm shortly.`
+    const appointmentDate = new Date(booking.scheduledAt).toLocaleString()
 
     try {
-      const twilioUrl = `https://api.twilio.com/2010-04-01/Accounts/${this.twilioSid}/Messages.json`
-      const auth = Buffer.from(`${this.twilioSid}:${this.twilioToken}`).toString('base64')
+      // Find or create subscriber by phone number
+      const subscriberRes = await fetch(
+        'https://api.manychat.com/fb/subscriber/findBySystemField',
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${this.manychatApiKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            field: 'whatsapp_phone',
+            value: patient.phone
+          })
+        }
+      )
 
-      await fetch(twilioUrl, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Basic ${auth}`,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-          From: this.whatsappFrom,
-          To: `whatsapp:${patient.phone}`,
-          Body: message
-        })
-      })
+      const subscriberData = await subscriberRes.json() as {
+        status: string
+        data: { id: string }[]
+      }
 
-      console.log(`[notification] Booking confirmation sent to ${patient.phone}`)
+      if (subscriberData.status !== 'success' || !subscriberData.data?.length) {
+        console.log('[notification] Subscriber not found in ManyChat, skipping')
+        return
+      }
+
+      const subscriberId = subscriberData.data[0].id
+
+      // Send dynamic message via ManyChat
+      await fetch(
+        'https://api.manychat.com/fb/sending/sendContent',
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${this.manychatApiKey}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            subscriber_id: subscriberId,
+            data: {
+              version: 'v2',
+              content: {
+                type: 'whatsapp',
+                messages: [
+                  {
+                    type: 'text',
+                    text: `Hello ${patient.first_name}! Your appointment with Dr. Costi has been requested for ${appointmentDate} at ${booking.location}. We will confirm shortly.`
+                  }
+                ]
+              }
+            }
+          })
+        }
+      )
+
+      console.log(`[notification] Booking confirmation sent via ManyChat to ${patient.phone}`)
     } catch (err) {
-      console.error('[notification] Failed to send:', err)
+      console.error('[notification] Failed to send via ManyChat:', err)
     }
   }
 }
