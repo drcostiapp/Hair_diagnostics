@@ -1,0 +1,9 @@
+{
+  "name": "medical-knowledge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dr. Costi medical knowledge base - treatments, products, and FAQs",
+  "scripts": {
+    "validate": "node scripts/validate.js"
+  }
+}

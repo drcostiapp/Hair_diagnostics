@@ -1,0 +1,72 @@
+[
+  {
+    "id": "prod-ce-ferulic",
+    "name": "C E Ferulic Serum",
+    "brand": "SkinCeuticals",
+    "category": "serum",
+    "skinperfectionUrl": "https://skinperfection.world/products/skinceuticals-ce-ferulic",
+    "priceUsd": 169,
+    "description": "Gold-standard antioxidant serum combining 15% pure vitamin C (L-ascorbic acid), 1% vitamin E, and 0.5% ferulic acid. Protects against environmental damage and improves signs of aging.",
+    "indications": ["antioxidant protection", "brightening", "anti-aging", "sun damage prevention", "fine lines"],
+    "howToUse": "Apply 4-5 drops to clean, dry skin every morning before moisturizer and sunscreen. Allow to absorb for 1-2 minutes.",
+    "drCostiRecommendation": "This is my go-to morning antioxidant for most patients. The combination of vitamins C, E, and ferulic acid provides unmatched environmental protection. Essential for anyone concerned about aging or sun damage.",
+    "ingredients": ["L-Ascorbic Acid 15%", "Alpha Tocopherol 1%", "Ferulic Acid 0.5%"],
+    "skinTypes": ["normal", "dry", "combination"]
+  },
+  {
+    "id": "prod-retinol-05",
+    "name": "Retinol 0.5 Refining Night Cream",
+    "brand": "SkinCeuticals",
+    "category": "retinoid",
+    "skinperfectionUrl": "https://skinperfection.world/products/skinceuticals-retinol-05",
+    "priceUsd": 88,
+    "description": "Concentrated retinol cream that improves fine lines, wrinkles, and skin discoloration while minimizing irritation through a controlled delivery system.",
+    "indications": ["anti-aging", "fine lines", "wrinkles", "hyperpigmentation", "skin texture"],
+    "howToUse": "Apply a pea-sized amount to clean skin at night, 2-3 times per week initially, gradually increasing frequency. Always use sunscreen the next morning.",
+    "drCostiRecommendation": "I start most anti-aging patients on this retinol. It's effective yet gentle enough for most skin types. The key is gradual introduction to build tolerance.",
+    "ingredients": ["Retinol 0.5%", "Bisabolol", "Hydroxyethyl Urea"],
+    "skinTypes": ["normal", "combination", "oily"]
+  },
+  {
+    "id": "prod-spf50",
+    "name": "Ultra Facial UV Defense SPF 50",
+    "brand": "SkinCeuticals",
+    "category": "sunscreen",
+    "skinperfectionUrl": "https://skinperfection.world/products/uv-defense-spf50",
+    "priceUsd": 45,
+    "description": "Lightweight, broad-spectrum UV protection with a matte finish. Suitable for all skin types and works well under makeup.",
+    "indications": ["sun protection", "daily UV defense", "post-procedure protection", "anti-aging prevention"],
+    "howToUse": "Apply liberally to face and neck 15 minutes before sun exposure. Reapply every 2 hours or after swimming/sweating.",
+    "drCostiRecommendation": "Sunscreen is the single most important product in any skincare routine. I tell every patient: no treatment will be effective without consistent sun protection. This formula works beautifully in our Middle Eastern climate.",
+    "ingredients": ["Zinc Oxide", "Octinoxate", "Niacinamide"],
+    "skinTypes": ["all"]
+  },
+  {
+    "id": "prod-hyaluronic-acid",
+    "name": "Hyaluronic Acid Intensifier",
+    "brand": "SkinCeuticals",
+    "category": "serum",
+    "skinperfectionUrl": "https://skinperfection.world/products/ha-intensifier",
+    "priceUsd": 100,
+    "description": "Multi-functional serum that amplifies the skin's hyaluronic acid levels by 30%. Contains proxylane, licorice root, and purple rice extract for plumping and firmness.",
+    "indications": ["dehydration", "fine lines", "loss of firmness", "post-procedure recovery", "plumping"],
+    "howToUse": "Apply 4-5 drops to face, neck, and chest morning and evening after serum, before moisturizer.",
+    "drCostiRecommendation": "Excellent for patients who feel their skin is dehydrated or lacking plumpness. I especially recommend this after filler treatments to support the hyaluronic acid we've injected.",
+    "ingredients": ["Proxylane", "Licorice Root Extract", "Purple Rice Extract", "Hyaluronic Acid"],
+    "skinTypes": ["all"]
+  },
+  {
+    "id": "prod-gentle-cleanser",
+    "name": "Gentle Cleanser",
+    "brand": "SkinCeuticals",
+    "category": "cleanser",
+    "skinperfectionUrl": "https://skinperfection.world/products/gentle-cleanser",
+    "priceUsd": 38,
+    "description": "Mild, soap-free cleanser that removes impurities and makeup without stripping the skin's natural moisture barrier. Ideal for sensitive and post-procedure skin.",
+    "indications": ["daily cleansing", "sensitive skin", "post-procedure care", "dry skin"],
+    "howToUse": "Apply to damp skin, massage gently in circular motions, rinse with lukewarm water. Use morning and evening.",
+    "drCostiRecommendation": "A gentle cleanser is the foundation of good skincare. I recommend this for all my patients, especially those undergoing procedures like peels or laser treatments.",
+    "ingredients": ["Allantoin", "Orange Oil", "Glycerin"],
+    "skinTypes": ["sensitive", "dry", "normal"]
+  }
+]

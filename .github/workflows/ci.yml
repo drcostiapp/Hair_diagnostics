@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: [main, development, staging]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint-and-typecheck:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type check shared-types
+        run: pnpm --filter shared-types typecheck
+
+      - name: Type check web-client
+        run: pnpm --filter web-client typecheck
+
+      - name: Type check backend-api
+        run: pnpm --filter backend-api typecheck
+
+  build-web:
+    name: Build Web Client
+    runs-on: ubuntu-latest
+    needs: lint-and-typecheck
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build web client
+        run: pnpm --filter web-client build
+        env:
+          VITE_API_BASE_URL: /api
+          VITE_HEYGEN_API_KEY: placeholder
+          VITE_HEYGEN_AVATAR_ID: placeholder
+          VITE_HEYGEN_VOICE_ID: placeholder
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-client-build
+          path: packages/web-client/dist
+
+  build-api:
+    name: Build Backend API
+    runs-on: ubuntu-latest
+    needs: lint-and-typecheck
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build backend
+        run: pnpm --filter backend-api build
+
+  docker-build:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    needs: [build-web, build-api]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build API Docker image
+        run: docker build -f infrastructure/Dockerfile.api -t dr-costi-api:${{ github.sha }} .
+
+      - name: Build Web Docker image
+        run: docker build -f infrastructure/Dockerfile.web.prod -t dr-costi-web:${{ github.sha }} .

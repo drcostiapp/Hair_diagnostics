@@ -1,0 +1,119 @@
+[
+  {
+    "id": "botox-forehead",
+    "name": "Botox for Forehead Lines",
+    "category": "neuromodulators",
+    "description": "Botulinum toxin type A injection to smooth horizontal forehead lines and prevent deepening of wrinkles. One of the most popular non-surgical aesthetic treatments worldwide.",
+    "indications": ["forehead lines", "glabellar lines", "worry lines", "preventative anti-aging"],
+    "contraindications": ["pregnancy", "breastfeeding", "neuromuscular disease", "allergy to botulinum toxin", "infection at injection site"],
+    "procedure": "After cleansing the area, small amounts of Botox are injected into specific muscles using a fine needle. Typically 10-30 units depending on muscle strength and desired effect. The procedure takes about 10-15 minutes.",
+    "duration": "15-30 minutes",
+    "downtime": "Minimal. Avoid exercise for 24 hours, no lying down for 4 hours post-treatment.",
+    "resultsTimeline": "Initial effects in 3-5 days, full results at 10-14 days",
+    "longevity": "3-4 months on average, may last longer with regular treatments",
+    "priceRange": "$300-600 depending on units needed",
+    "aftercare": [
+      "Do not lie down for 4 hours after treatment",
+      "Avoid strenuous exercise for 24 hours",
+      "Do not rub or massage the treated area",
+      "Avoid alcohol for 24 hours",
+      "Avoid extreme heat (saunas, hot tubs) for 48 hours"
+    ],
+    "drCostiApproach": "I prefer a natural, conservative approach to forehead Botox. The goal is to soften lines while maintaining natural expression and movement. I customize the dosage based on each patient's muscle strength and aesthetic goals.",
+    "tags": ["wrinkles", "anti-aging", "preventative", "forehead", "non-surgical", "quick procedure"],
+    "relatedTreatments": ["botox-crows-feet", "botox-glabella", "dermal-filler-forehead"]
+  },
+  {
+    "id": "botox-crows-feet",
+    "name": "Botox for Crow's Feet",
+    "category": "neuromodulators",
+    "description": "Treatment of fine lines around the eyes (lateral canthal lines) using botulinum toxin. These dynamic wrinkles appear when smiling or squinting.",
+    "indications": ["crow's feet", "eye wrinkles", "smile lines around eyes"],
+    "contraindications": ["pregnancy", "breastfeeding", "neuromuscular disease", "eyelid drooping history"],
+    "procedure": "2-3 small injections per side around the outer corner of each eye. Uses 8-16 units per side. Quick and well-tolerated procedure.",
+    "duration": "10-15 minutes",
+    "downtime": "None. Can return to normal activities immediately.",
+    "resultsTimeline": "Visible improvement in 3-5 days, full effect at 2 weeks",
+    "longevity": "3-4 months",
+    "priceRange": "$200-400",
+    "aftercare": [
+      "Avoid rubbing the eye area",
+      "No heavy exercise for 24 hours",
+      "Wear sunglasses to protect the area"
+    ],
+    "drCostiApproach": "I focus on maintaining a natural smile while reducing the depth of crow's feet. Overtreating this area can create an unnatural appearance, so precision is key.",
+    "tags": ["wrinkles", "anti-aging", "eyes", "crow's feet", "non-surgical"],
+    "relatedTreatments": ["botox-forehead", "under-eye-filler"]
+  },
+  {
+    "id": "hyaluronic-acid-lips",
+    "name": "Lip Filler (Hyaluronic Acid)",
+    "category": "dermal_fillers",
+    "description": "Enhancement of lip volume, shape, and definition using hyaluronic acid-based dermal fillers. Can address thin lips, asymmetry, and loss of volume due to aging.",
+    "indications": ["thin lips", "lip asymmetry", "volume loss", "lip border definition", "smoker's lines around lips"],
+    "contraindications": ["pregnancy", "breastfeeding", "active cold sores", "allergy to hyaluronic acid", "autoimmune conditions"],
+    "procedure": "After applying topical numbing cream, hyaluronic acid filler is carefully injected using a fine needle or cannula. Typically 0.5-1ml per session. Multiple techniques used based on desired outcome.",
+    "duration": "30-45 minutes",
+    "downtime": "Swelling and bruising for 3-7 days. Social downtime 2-3 days.",
+    "resultsTimeline": "Immediate volume, final shape at 2 weeks after swelling resolves",
+    "longevity": "6-12 months depending on product and metabolism",
+    "priceRange": "$500-800 per syringe",
+    "aftercare": [
+      "Apply ice to reduce swelling",
+      "Avoid hot beverages for 24 hours",
+      "No kissing or lip pressure for 48 hours",
+      "Avoid strenuous exercise for 48 hours",
+      "Stay hydrated"
+    ],
+    "drCostiApproach": "My philosophy for lips is enhancement, not transformation. I aim for natural-looking results that complement the patient's facial proportions. I use the Russian lip technique for a defined, elegant shape when appropriate.",
+    "tags": ["lips", "filler", "volume", "enhancement", "non-surgical", "hyaluronic acid"],
+    "relatedTreatments": ["lip-flip-botox", "smokers-lines-treatment"]
+  },
+  {
+    "id": "prp-hair-restoration",
+    "name": "PRP Hair Restoration",
+    "category": "prp_therapy",
+    "description": "Platelet-Rich Plasma therapy for hair loss. Uses the patient's own blood platelets to stimulate hair follicles, promote new hair growth, and slow hair thinning.",
+    "indications": ["androgenetic alopecia", "hair thinning", "early hair loss", "post-transplant enhancement"],
+    "contraindications": ["active scalp infections", "blood disorders", "anticoagulant therapy", "cancer", "chronic liver disease"],
+    "procedure": "Blood is drawn, centrifuged to concentrate platelets, then the PRP is injected into the scalp at the level of hair follicles. Typically 3-4 sessions initially, then maintenance every 6-12 months.",
+    "duration": "45-60 minutes",
+    "downtime": "Minimal. Mild scalp tenderness for 1-2 days.",
+    "resultsTimeline": "Initial improvement at 3-6 months, optimal results after 3 sessions",
+    "longevity": "6-12 months per session, ongoing maintenance recommended",
+    "priceRange": "$600-1000 per session",
+    "aftercare": [
+      "Avoid washing hair for 24 hours",
+      "No harsh chemicals or styling for 48 hours",
+      "Avoid strenuous exercise for 24 hours",
+      "Avoid sun exposure to scalp for 48 hours"
+    ],
+    "drCostiApproach": "PRP is an excellent option for early-stage hair loss. I combine it with a comprehensive approach including topical treatments and lifestyle modifications for best results.",
+    "tags": ["hair loss", "PRP", "hair restoration", "non-surgical", "regenerative"],
+    "relatedTreatments": ["microneedling-scalp", "mesotherapy-hair"]
+  },
+  {
+    "id": "chemical-peel-medium",
+    "name": "Medium-Depth Chemical Peel",
+    "category": "chemical_peels",
+    "description": "Professional chemical exfoliation using TCA (trichloroacetic acid) to address sun damage, fine lines, acne scarring, and hyperpigmentation. Penetrates to the upper dermis for significant skin renewal.",
+    "indications": ["sun damage", "fine lines", "acne scars", "hyperpigmentation", "melasma", "uneven skin texture"],
+    "contraindications": ["active skin infections", "recent isotretinoin use", "pregnancy", "open wounds", "very dark skin tones (higher risk of post-inflammatory hyperpigmentation)"],
+    "procedure": "Skin is cleansed and degreased. TCA solution (15-35%) is applied in controlled layers. A frosting pattern indicates depth of penetration. Neutralization may or may not be needed depending on the acid.",
+    "duration": "30-45 minutes",
+    "downtime": "5-7 days of peeling. Redness may persist 1-2 weeks.",
+    "resultsTimeline": "New skin emerges in 7-10 days, continued improvement over 4-6 weeks",
+    "longevity": "Results last 6-12 months with proper skincare",
+    "priceRange": "$300-600",
+    "aftercare": [
+      "Keep skin moisturized at all times",
+      "Absolutely no sun exposure during healing",
+      "Use SPF 50+ daily for at least 3 months",
+      "Do not pick or peel the skin",
+      "Gentle cleanser only during healing"
+    ],
+    "drCostiApproach": "I select the peel depth and concentration based on each patient's skin type, concerns, and downtime tolerance. For patients with Middle Eastern skin, I'm particularly careful with concentration to avoid post-inflammatory hyperpigmentation.",
+    "tags": ["peel", "resurfacing", "acne scars", "pigmentation", "anti-aging", "skin texture"],
+    "relatedTreatments": ["microneedling-face", "laser-resurfacing"]
+  }
+]

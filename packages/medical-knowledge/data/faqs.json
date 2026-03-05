@@ -1,0 +1,72 @@
+[
+  {
+    "id": "faq-001",
+    "question": "How long does Botox last?",
+    "answerShort": "Botox typically lasts 3-4 months, though this varies by individual.",
+    "answerDetailed": "The effects of Botox typically last between 3-4 months for most patients. However, several factors can influence this: your metabolism, the area treated, the dose used, and whether you're a first-time patient. Some patients find that with regular treatments, the effects can last longer over time as the muscles become conditioned. I recommend scheduling your next appointment at the 3-month mark to maintain optimal results.",
+    "category": "neuromodulators",
+    "tags": ["botox", "duration", "results", "maintenance"],
+    "relatedQuestions": ["How often should I get Botox?", "Can I make Botox last longer?", "What happens when Botox wears off?"],
+    "language": "en"
+  },
+  {
+    "id": "faq-002",
+    "question": "Is filler safe?",
+    "answerShort": "Yes, when performed by a qualified professional. Hyaluronic acid fillers are FDA-approved and have an excellent safety profile.",
+    "answerDetailed": "Dermal fillers, particularly hyaluronic acid-based ones like Juvederm and Restylane, have been used for decades and have an excellent safety profile when administered by a trained professional. The most common side effects are temporary and include swelling, bruising, and tenderness at the injection site. Serious complications are rare but can include vascular occlusion. This is why choosing an experienced injector who understands facial anatomy is crucial. I always perform a thorough consultation before any filler treatment and use the safest techniques available.",
+    "category": "dermal_fillers",
+    "tags": ["filler", "safety", "risks", "hyaluronic acid"],
+    "relatedQuestions": ["What are the side effects of fillers?", "Can filler be dissolved?", "How do I choose the right filler?"],
+    "language": "en"
+  },
+  {
+    "id": "faq-003",
+    "question": "What skincare routine do you recommend?",
+    "answerShort": "A basic routine includes cleanser, antioxidant serum (morning), moisturizer, and SPF 50 daily. Retinol at night for anti-aging.",
+    "answerDetailed": "A good skincare routine doesn't need to be complicated. Here's what I recommend for most patients:\n\nMorning:\n1. Gentle cleanser\n2. Antioxidant serum (like vitamin C)\n3. Moisturizer\n4. SPF 50 sunscreen (non-negotiable!)\n\nEvening:\n1. Gentle cleanser (double cleanse if wearing makeup)\n2. Retinol (2-3x per week, build up gradually)\n3. Moisturizer\n\nThe most important product is sunscreen. No amount of treatments or products will help if you're not protecting your skin from UV damage daily. I can customize this routine based on your specific skin concerns during a consultation.",
+    "category": "skincare",
+    "tags": ["skincare", "routine", "SPF", "retinol", "vitamin C", "daily care"],
+    "relatedQuestions": ["What SPF should I use?", "Do I really need retinol?", "When should I start an anti-aging routine?"],
+    "language": "en"
+  },
+  {
+    "id": "faq-004",
+    "question": "What's the best treatment for acne scars?",
+    "answerShort": "It depends on the scar type. Options include microneedling, chemical peels, laser resurfacing, and subcision. Often a combination approach works best.",
+    "answerDetailed": "Acne scar treatment depends on the type of scars you have:\n\n- Ice pick scars: TCA CROSS technique or punch excision\n- Boxcar scars: Microneedling, fractional laser, or chemical peels\n- Rolling scars: Subcision + filler or PRP\n- Post-inflammatory hyperpigmentation: Chemical peels, vitamin C, retinoids\n\nMost patients benefit from a combination approach over multiple sessions. I typically start with microneedling or medium-depth peels for general improvement, then address specific stubborn scars with targeted treatments. Results are gradual - expect 3-6 sessions for significant improvement. The key is managing expectations while creating a realistic treatment plan.",
+    "category": "skin_treatments",
+    "tags": ["acne scars", "microneedling", "peels", "laser", "scars", "skin texture"],
+    "relatedQuestions": ["How many sessions do I need for acne scars?", "Is microneedling painful?", "Can acne scars be completely removed?"],
+    "language": "en"
+  },
+  {
+    "id": "faq-005",
+    "question": "At what age should I start Botox?",
+    "answerShort": "There's no specific age. Preventative Botox can start in your mid-20s to early 30s when you first notice lines forming at rest.",
+    "answerDetailed": "There's no magic number for when to start Botox. The right time depends on your genetics, skin quality, and when lines begin to bother you. Many patients start 'preventative Botox' in their mid-20s to early 30s, which uses smaller doses to prevent deep lines from forming. The general guideline is: if you can see lines on your forehead or around your eyes when your face is completely relaxed, it may be a good time to consider treatment. Starting earlier typically means you'll need less product and can maintain smoother skin long-term. During your consultation, I'll assess your facial dynamics and recommend the right time and approach for you.",
+    "category": "neuromodulators",
+    "tags": ["botox", "age", "preventative", "anti-aging", "when to start"],
+    "relatedQuestions": ["Am I too young for Botox?", "What is preventative Botox?", "How long does Botox last?"],
+    "language": "en"
+  },
+  {
+    "id": "faq-006",
+    "question": "How can I treat hair loss?",
+    "answerShort": "Treatment depends on the cause. Options include PRP therapy, topical minoxidil, oral medications, and hair transplant for advanced cases.",
+    "answerDetailed": "Hair loss treatment starts with understanding the cause. The most common type is androgenetic alopecia (pattern hair loss). Here's my approach:\n\n1. First line: PRP therapy (platelet-rich plasma) - stimulates follicles using your own growth factors\n2. Topical minoxidil (5%) - FDA-approved, promotes regrowth\n3. Oral finasteride (for men) - blocks DHT hormone\n4. Nutritional optimization - checking iron, vitamin D, biotin levels\n5. Low-level laser therapy - supportive treatment\n6. Hair transplant - for advanced loss with good donor area\n\nI typically recommend starting with PRP combined with topical treatments for early-stage loss. The key is starting early - it's much easier to maintain existing hair than regrow lost hair. Results with PRP are usually visible after 3-6 months of treatment.",
+    "category": "hair_restoration",
+    "tags": ["hair loss", "PRP", "treatment", "minoxidil", "alopecia", "hair restoration"],
+    "relatedQuestions": ["Is PRP effective for hair loss?", "How many PRP sessions do I need?", "Am I a candidate for hair transplant?"],
+    "language": "en"
+  },
+  {
+    "id": "faq-007",
+    "question": "How much does a consultation cost?",
+    "answerShort": "Initial consultation fees vary by location. Please contact our clinic for current pricing and availability.",
+    "answerDetailed": "Our consultation fees vary by location and type of consultation. During your initial visit, Dr. Costi will perform a thorough assessment of your concerns, discuss treatment options, and create a personalized plan. The consultation fee is often credited toward your first treatment if you decide to proceed. Please contact our clinic directly for current pricing, or use this app to book a consultation and our team will provide you with all the details.",
+    "category": "general",
+    "tags": ["pricing", "consultation", "cost", "booking", "appointment"],
+    "relatedQuestions": ["How do I book an appointment?", "Where is the clinic located?", "Do you offer virtual consultations?"],
+    "language": "en"
+  }
+]

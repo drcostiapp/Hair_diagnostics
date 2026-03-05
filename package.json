@@ -1,0 +1,22 @@
+{
+  "name": "dr-costi-ar-avatar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dr. Costi AR Medical Avatar - Photorealistic AR conversational avatar for medical consultations",
+  "scripts": {
+    "dev:web": "pnpm --filter web-client dev",
+    "dev:api": "pnpm --filter backend-api dev",
+    "build": "pnpm -r build",
+    "build:web": "pnpm --filter web-client build",
+    "build:api": "pnpm --filter backend-api build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean",
+    "setup": "bash scripts/setup.sh"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.29.3"
+}
