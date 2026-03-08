@@ -1,0 +1,453 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  pin       String   @default("1234")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  profile           UserProfile?
+  goals             Goal[]
+  dailyLogs         DailyLog[]
+  meals             Meal[]
+  symptomEntries    SymptomEntry[]
+  sleepEntries      SleepEntry[]
+  exerciseEntries   ExerciseEntry[]
+  weightEntries     WeightEntry[]
+  bodyCompositions  BodyCompositionEntry[]
+  supplements       Supplement[]
+  supplementLogs    SupplementLog[]
+  peptides          Peptide[]
+  peptideLogs       PeptideLog[]
+  medications       Medication[]
+  medicationLogs    MedicationLog[]
+  protocols         Protocol[]
+  labPanels         LabPanel[]
+  recommendations   Recommendation[]
+  insights          Insight[]
+  notes             Note[]
+  aiQueries         AIQuery[]
+}
+
+model UserProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  age             Int?
+  sex             String?
+  height          Float?
+  heightUnit      String   @default("in")
+  activityLevel   String?
+  dietaryStyle    String?
+  sleepHabits     String?
+  medicalHistory  String?
+  familyHistory   String?
+  allergies       String?
+  diagnoses       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Goal {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  category    String?
+  priority    Int      @default(0)
+  status      String   @default("active")
+  targetDate  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model DailyLog {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime @db.Date
+  mood        Int?
+  energy      Int?
+  stress      Int?
+  hydration   Float?
+  steps       Int?
+  bowelHealth String?
+  recovery    String?
+  notes       String?
+  tags        String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, date])
+}
+
+model Meal {
+  id          String     @id @default(cuid())
+  userId      String
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime   @db.Date
+  time        String?
+  mealType    String
+  description String?
+  calories    Int?
+  protein     Float?
+  carbs       Float?
+  fat         Float?
+  fiber       Float?
+  notes       String?
+  tags        String[]
+  items       MealItem[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model MealItem {
+  id       String @id @default(cuid())
+  mealId   String
+  meal     Meal   @relation(fields: [mealId], references: [id], onDelete: Cascade)
+  name     String
+  amount   String?
+  calories Int?
+  protein  Float?
+  carbs    Float?
+  fat      Float?
+}
+
+model SymptomEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime @db.Date
+  time      String?
+  symptom   String
+  severity  Int      @default(5)
+  duration  String?
+  triggers  String?
+  notes     String?
+  tags      String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SleepEntry {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date          DateTime @db.Date
+  bedtime       String?
+  wakeTime      String?
+  duration      Float?
+  quality       Int?
+  deepSleep     Float?
+  remSleep      Float?
+  lightSleep    Float?
+  awakenings    Int?
+  hrv           Float?
+  restingHr     Float?
+  notes         String?
+  tags          String[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ExerciseEntry {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date        DateTime @db.Date
+  time        String?
+  type        String
+  name        String
+  duration    Int?
+  intensity   Int?
+  calories    Int?
+  heartRateAvg Int?
+  heartRateMax Int?
+  distance    Float?
+  sets        Int?
+  reps        String?
+  weight      Float?
+  notes       String?
+  tags        String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model WeightEntry {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime @db.Date
+  weight    Float
+  unit      String   @default("lbs")
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BodyCompositionEntry {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date          DateTime @db.Date
+  weight        Float?
+  bodyFat       Float?
+  muscleMass    Float?
+  visceralFat   Float?
+  waist         Float?
+  chest         Float?
+  hips          Float?
+  arms          Float?
+  thighs        Float?
+  boneDensity   Float?
+  waterPercent  Float?
+  bmr           Int?
+  scanType      String?
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Supplement {
+  id          String          @id @default(cuid())
+  userId      String
+  user        User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  brand       String?
+  dosage      String?
+  frequency   String?
+  purpose     String?
+  active      Boolean         @default(true)
+  startDate   DateTime?       @db.Date
+  endDate     DateTime?       @db.Date
+  notes       String?
+  logs        SupplementLog[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model SupplementLog {
+  id            String     @id @default(cuid())
+  userId        String
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  supplementId  String
+  supplement    Supplement @relation(fields: [supplementId], references: [id], onDelete: Cascade)
+  date          DateTime   @db.Date
+  time          String?
+  taken         Boolean    @default(true)
+  dosage        String?
+  notes         String?
+  createdAt     DateTime   @default(now())
+}
+
+model Peptide {
+  id          String       @id @default(cuid())
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  dosage      String?
+  frequency   String?
+  route       String?
+  purpose     String?
+  active      Boolean      @default(true)
+  startDate   DateTime?    @db.Date
+  endDate     DateTime?    @db.Date
+  notes       String?
+  logs        PeptideLog[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model PeptideLog {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  peptideId  String
+  peptide    Peptide  @relation(fields: [peptideId], references: [id], onDelete: Cascade)
+  date       DateTime @db.Date
+  time       String?
+  taken      Boolean  @default(true)
+  dosage     String?
+  site       String?
+  notes      String?
+  createdAt  DateTime @default(now())
+}
+
+model Medication {
+  id            String          @id @default(cuid())
+  userId        String
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name          String
+  dosage        String?
+  frequency     String?
+  prescriber    String?
+  purpose       String?
+  active        Boolean         @default(true)
+  startDate     DateTime?       @db.Date
+  endDate       DateTime?       @db.Date
+  notes         String?
+  logs          MedicationLog[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model MedicationLog {
+  id            String     @id @default(cuid())
+  userId        String
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  medicationId  String
+  medication    Medication @relation(fields: [medicationId], references: [id], onDelete: Cascade)
+  date          DateTime   @db.Date
+  time          String?
+  taken         Boolean    @default(true)
+  dosage        String?
+  notes         String?
+  createdAt     DateTime   @default(now())
+}
+
+model Protocol {
+  id              String           @id @default(cuid())
+  userId          String
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name            String
+  category        String
+  description     String?
+  dosage          String?
+  frequency       String?
+  purpose         String?
+  status          String           @default("active")
+  startDate       DateTime         @db.Date
+  endDate         DateTime?        @db.Date
+  subjectiveEffect String?
+  outcomeNotes    String?
+  notes           String?
+  tags            String[]
+  changes         ProtocolChange[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+}
+
+model ProtocolChange {
+  id          String   @id @default(cuid())
+  protocolId  String
+  protocol    Protocol @relation(fields: [protocolId], references: [id], onDelete: Cascade)
+  date        DateTime @db.Date
+  changeType  String
+  description String
+  reason      String?
+  notes       String?
+  createdAt   DateTime @default(now())
+}
+
+model LabPanel {
+  id        String      @id @default(cuid())
+  userId    String
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  date      DateTime    @db.Date
+  provider  String?
+  notes     String?
+  results   LabResult[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model LabResult {
+  id           String   @id @default(cuid())
+  panelId      String
+  panel        LabPanel @relation(fields: [panelId], references: [id], onDelete: Cascade)
+  biomarkerId  String?
+  biomarker    BiomarkerDefinition? @relation(fields: [biomarkerId], references: [id])
+  name         String
+  value        Float
+  unit         String
+  refRangeLow  Float?
+  refRangeHigh Float?
+  flag         String?
+  notes        String?
+  createdAt    DateTime @default(now())
+}
+
+model BiomarkerDefinition {
+  id           String      @id @default(cuid())
+  name         String      @unique
+  category     String?
+  unit         String?
+  refRangeLow  Float?
+  refRangeHigh Float?
+  description  String?
+  labResults   LabResult[]
+}
+
+model Recommendation {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category    String
+  priority    String
+  confidence  String
+  title       String
+  description String
+  reasoning   String?
+  actionItems String[]
+  status      String   @default("active")
+  dismissed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Insight {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        String
+  category    String?
+  title       String
+  description String
+  confidence  String
+  dataPoints  String[]
+  createdAt   DateTime @default(now())
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  date      DateTime @db.Date
+  title     String?
+  content   String
+  category  String?
+  tags      String[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AIQuery {
+  id        String      @id @default(cuid())
+  userId    String
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question  String
+  response  AIResponse?
+  createdAt DateTime    @default(now())
+}
+
+model AIResponse {
+  id         String  @id @default(cuid())
+  queryId    String  @unique
+  query      AIQuery @relation(fields: [queryId], references: [id], onDelete: Cascade)
+  answer     String
+  reasoning  String?
+  dataCited  String[]
+  confidence String?
+  createdAt  DateTime @default(now())
+}
