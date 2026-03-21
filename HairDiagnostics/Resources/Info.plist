@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSHealthShareUsageDescription</key>
+    <string>Hair Diagnostics reads your nutrition data (biotin, iron, zinc, vitamin D) to correlate supplement intake with hair health trends.</string>
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>Hair Diagnostics saves your hair health assessments and supplement logs to the Health app so you can track everything in one place.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Hair Diagnostics uses the camera to photograph your hair and scalp for visual tracking over time.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Hair Diagnostics accesses your photo library to import hair photos for analysis.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>processing</string>
+    </array>
+</dict>
+</plist>
