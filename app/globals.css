@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f8f4ec;
+  --anchor: #14322b;
+  --gold: #c9a86a;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--anchor);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.01em;
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #c9a86a 50%,
+    transparent 100%
+  );
+}
+
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: #e2c896;
+  border-radius: 3px;
+}
+
+/* WhatsApp-style tail – elevated */
+.bubble-tail-left::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  bottom: 0;
+  width: 12px;
+  height: 14px;
+  background: inherit;
+  border-bottom-right-radius: 14px 10px;
+}
+.bubble-tail-right::before {
+  content: "";
+  position: absolute;
+  right: -6px;
+  bottom: 0;
+  width: 12px;
+  height: 14px;
+  background: inherit;
+  border-bottom-left-radius: 14px 10px;
+}
