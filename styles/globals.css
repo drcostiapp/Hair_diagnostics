@@ -1,0 +1,109 @@
+:root {
+  --dark-anchor: #0e2a37;
+  --champagne-gold: #d3b57c;
+  --warm-linen: #dbccbb;
+  --warm-ivory: #f7f3ee;
+  --deep-bronze: #84735f;
+  --white: #ffffff;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--dark-anchor);
+  background: linear-gradient(180deg, var(--warm-ivory), #f2ece5);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+.card {
+  background: var(--white);
+  border: 1px solid rgba(14, 42, 55, 0.08);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 16px 38px rgba(14, 42, 55, 0.08);
+}
+
+.grid { display: grid; gap: 1rem; }
+
+.kpi {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.muted { color: rgba(14, 42, 55, 0.7); }
+
+.chat-shell {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1rem;
+  min-height: 75vh;
+}
+
+.chat-window {
+  background: var(--warm-ivory);
+  border-radius: var(--radius);
+  border: 1px solid rgba(14, 42, 55, 0.08);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+}
+
+.bubble {
+  border-radius: 18px;
+  padding: 0.75rem 1rem;
+  max-width: 75%;
+  line-height: 1.45;
+}
+
+.bubble.ai {
+  background: #fff;
+  border: 1px solid rgba(14, 42, 55, 0.1);
+  align-self: flex-start;
+}
+
+.bubble.trainee {
+  background: var(--dark-anchor);
+  color: var(--white);
+  align-self: flex-end;
+}
+
+.timestamp { font-size: 0.75rem; opacity: 0.65; margin-top: 0.25rem; }
+
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-row textarea {
+  flex: 1;
+  resize: vertical;
+  min-height: 84px;
+  border-radius: 12px;
+  border: 1px solid rgba(14, 42, 55, 0.2);
+  padding: 0.75rem;
+  font: inherit;
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-gold { background: var(--champagne-gold); color: var(--dark-anchor); }
+.btn-dark { background: var(--dark-anchor); color: var(--white); }
+.btn-ghost { background: rgba(14, 42, 55, 0.08); color: var(--dark-anchor); }
+
+@media (max-width: 980px) {
+  .chat-shell { grid-template-columns: 1fr; }
+}
