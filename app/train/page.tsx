@@ -28,9 +28,10 @@ export default async function TrainPage() {
     .order("category")
     .order("difficulty");
 
-  const grouped = (scenarios ?? []).reduce<Record<ScenarioCategory, Scenario[]>>(
+  const rows = (scenarios ?? []) as Scenario[];
+  const grouped = rows.reduce<Record<ScenarioCategory, Scenario[]>>(
     (acc, s) => {
-      (acc[s.category] = acc[s.category] ?? []).push(s as Scenario);
+      (acc[s.category] = acc[s.category] ?? []).push(s);
       return acc;
     },
     {} as Record<ScenarioCategory, Scenario[]>,
