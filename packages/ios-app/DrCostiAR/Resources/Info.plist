@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>Dr. Costi AR</string>
+    <key>CFBundleDisplayName</key>
+    <string>Dr. Costi AR</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.drcosti.ar-avatar</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.1.0</string>
+    <key>UIRequiredDeviceCapabilities</key>
+    <array>
+        <string>arkit</string>
+    </array>
+    <key>NSCameraUsageDescription</key>
+    <string>Dr. Costi AR needs camera access to show the avatar in your environment using augmented reality.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Dr. Costi AR needs microphone access so you can speak with the avatar during consultations.</string>
+    <key>UILaunchScreen</key>
+    <dict/>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
+</dict>
+</plist>

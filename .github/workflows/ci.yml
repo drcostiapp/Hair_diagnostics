@@ -37,10 +37,36 @@ jobs:
       - name: Type check backend-api
         run: pnpm --filter backend-api typecheck
 
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: lint-and-typecheck
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm test
+        env:
+          NODE_ENV: test
+
   build-web:
     name: Build Web Client
     runs-on: ubuntu-latest
-    needs: lint-and-typecheck
+    needs: [lint-and-typecheck, test]
 
     steps:
       - uses: actions/checkout@v4
@@ -75,7 +101,7 @@ jobs:
   build-api:
     name: Build Backend API
     runs-on: ubuntu-latest
-    needs: lint-and-typecheck
+    needs: [lint-and-typecheck, test]
 
     steps:
       - uses: actions/checkout@v4
