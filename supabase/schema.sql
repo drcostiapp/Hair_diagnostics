@@ -77,11 +77,28 @@ create table if not exists certifications (
   manager_notes text
 );
 
+create table if not exists marketing_reports (
+  id uuid primary key default gen_random_uuid(),
+  business text not null default 'Dr. Costi House of Beauty',
+  campaign_input jsonb,
+  overall_marketing_score int,
+  competitive_advantage_score int,
+  growth_potential_score int,
+  executive_summary text,
+  immediate_actions text[] default '{}',
+  medium_term_actions text[] default '{}',
+  long_term_actions text[] default '{}',
+  content_pillars text[] default '{}',
+  priority_actions text[] default '{}',
+  created_at timestamp default now()
+);
+
 alter table users enable row level security;
 alter table simulations enable row level security;
 alter table messages enable row level security;
 alter table evaluations enable row level security;
 alter table certifications enable row level security;
+alter table marketing_reports enable row level security;
 
 create policy "managers read all users" on users for select using (auth.jwt() ->> 'role' = 'manager');
 create policy "staff read own user row" on users for select using (auth.uid() = id);
@@ -92,3 +109,4 @@ create policy "staff read own messages" on messages for select using (
 create policy "staff read own evaluations" on evaluations for select using (
   exists (select 1 from simulations s where s.id = simulation_id and s.user_id = auth.uid())
 );
+create policy "managers read marketing reports" on marketing_reports for select using (auth.jwt() ->> 'role' = 'manager');
