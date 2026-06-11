@@ -49,6 +49,18 @@ npm run seed
 - `GET /api/dashboard/user/:id`
 - `GET /api/scenarios`
 - `POST /api/scenarios`
+- `POST /api/marketing` — run a full campaign audit; persists and returns the Executive Summary report
+- `GET /api/marketing` — list saved reports (scores over time)
+
+## Marketing Engine
+The **Marketing Engine** (`/marketing`) runs the *Elite Marketing Intelligence &
+Campaign Optimization Engine* against current campaign data and competitor
+context, returning a structured Executive Summary (Overall Marketing,
+Competitive Advantage, and Growth Potential scores, plus 7/30/90-day actions,
+content pillars, and the top-5 priority actions). Reports are persisted to
+`marketing_reports` for score-trend tracking. The strategy is documented in
+[`docs/marketing-strategy-framework.md`](docs/marketing-strategy-framework.md)
+and powered by `MARKETING_STRATEGIST_PROMPT` in `lib/prompts.ts`.
 
 ## Certification Logic
 - Simulation pass: `>= 90`

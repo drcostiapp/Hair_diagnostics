@@ -17,6 +17,18 @@ export interface Scenario {
   sop_reference: string;
 }
 
+export interface MarketingReport {
+  overall_marketing_score: number;
+  competitive_advantage_score: number;
+  growth_potential_score: number;
+  executive_summary: string;
+  immediate_actions: string[];
+  medium_term_actions: string[];
+  long_term_actions: string[];
+  content_pillars: string[];
+  priority_actions: string[];
+}
+
 export interface EvaluationResult {
   tone_score: number;
   sop_score: number;

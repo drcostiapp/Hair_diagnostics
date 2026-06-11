@@ -3,6 +3,7 @@ import Link from "next/link";
 const links = [
   ["/dashboard", "Dashboard"],
   ["/scenarios", "Scenario Library"],
+  ["/marketing", "Marketing Engine"],
   ["/manager", "Manager View"],
   ["/profile/me", "Staff Profile"]
 ];
