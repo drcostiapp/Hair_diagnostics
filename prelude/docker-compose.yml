@@ -1,0 +1,74 @@
+version: "3.9"
+
+# PRELUDE — event-scoped nightlife social platform
+# Brings up the full stack: Postgres, Redis, the NestJS API (+ realtime
+# gateway) and the Python ML ranking service. The Expo mobile app is run
+# separately (see prelude/mobile/README.md) and points at the API.
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: prelude
+      POSTGRES_PASSWORD: prelude
+      POSTGRES_DB: prelude
+    ports:
+      - "5432:5432"
+    volumes:
+      - prelude_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U prelude -d prelude"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - prelude_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: ./api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      PORT: "3000"
+      DATABASE_URL: postgres://prelude:prelude@postgres:5432/prelude
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: change-me-in-prod
+      ML_SERVICE_URL: http://ml:8000
+    ports:
+      - "3000:3000"
+    # Run migrations then boot the API.
+    command: sh -c "npm run migrate && node dist/main.js"
+
+  ml:
+    build:
+      context: ./ml
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://prelude:prelude@postgres:5432/prelude
+      MODEL_DIR: /app/model_registry
+    ports:
+      - "8000:8000"
+
+volumes:
+  prelude_pg:
+  prelude_redis:
