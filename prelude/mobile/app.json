@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Prelude",
+    "slug": "prelude-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "prelude",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0B0F",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B0B0F"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.prelude.mobile"
+    },
+    "android": {
+      "package": "com.prelude.mobile"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

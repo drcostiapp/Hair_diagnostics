@@ -1,0 +1,29 @@
+# Node
+node_modules/
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Expo
+.expo/
+.expo-shared/
+web-build/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# ML artifacts (trained models are produced at runtime)
+model_registry/*.pkl
+
+# OS
+.DS_Store
