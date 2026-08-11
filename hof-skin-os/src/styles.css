@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply font-body antialiased;
+    /* Treatment-room iPad: no rubber-banding, no accidental text selection mid-facial. */
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Minimum comfortable target for a gloved hand on a docked iPad. */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
